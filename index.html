@@ -3,21 +3,957 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>سایان نتورک | راهکارهای شبکه و امنیت</title>
-    <meta name="description" content="تأمین‌کننده تخصصی تجهیزات شبکه، سرور و راهکارهای امنیت شبکه">
+    <meta name="description" content="سایان نتورک | راهکارهای شبکه و امنیت. دسترسی سریع به تجهیزات شبکه، سرور، دوربین مداربسته و مشاوره تخصصی.">
+    <meta name="keywords" content="شبکه, تجهیزات شبکه, میکروتیک, سیسکو, سرور, دوربین مداربسته, امنیت شبکه, سایان نتورک">
+    <meta name="author" content="Sayan Network">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://sayannetwork.github.io/network-solutions/">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sayannetwork.github.io/network-solutions/">
+    <meta property="og:title" content="سایان نتورک | پورتال جامع شبکه و امنیت">
+    <meta property="og:description" content="دسترسی سریع به تمام دسته‌بندی محصولات، خدمات تخصصی و مقالات آموزشی سایان نتورک.">
+    <meta property="og:image" content="https://sayannetwork.ir/wp-content/uploads/2024/01/sayan-logo.png"> <!-- آدرس لوگو را جایگزین کنید -->
+    
+    <title>سایان نتورک | پورتال جامع شبکه و امنیت</title>
+
+    <!-- Preload Fonts -->
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preload" href="https://cdn.jsdelivr.net/gh/AmirAbbasVafaee/persian-fonts-cdn@main/fonts/Peyda/Peyda-Regular.woff2" as="font" type="font/woff2" crossorigin>
+    
+    <!-- Peyda Font (CDN) -->
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/AmirAbbasVafaee/persian-fonts-cdn/main/css/peyda.css">
+
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "سایان نتورک",
+      "url": "https://sayannetwork.ir",
+      "logo": "https://sayannetwork.ir/wp-content/uploads/2024/01/sayan-logo.png",
+      "description": "تأمین‌کننده تخصصی تجهیزات شبکه، سرور و راهکارهای امنیت شبکه",
+      "sameAs": [
+        "https://linkedin.com/company/sayannetwork",
+        "https://instagram.com/sayannetwork"
+      ]
+    }
+    </script>
+
+    <style>
+        /* ============ CSS RESET & VARIABLES ============ */
+        :root {
+            --bg-dark: #050816;
+            --bg-darker: #02040a;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --accent-cyan: #06b6d4;
+            --accent-purple: #8b5cf6;
+            --accent-emerald: #10b981;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --gradient-primary: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            --font-persian: 'Peyda', 'Tahoma', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-persian);
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            line-height: 1.7;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ============ BACKGROUND & EFFECTS ============ */
+        .bg-orbs {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: 0.5;
+            animation: float 20s infinite ease-in-out;
+        }
+
+        .orb-1 { width: 400px; height: 400px; background: var(--accent-cyan); top: -100px; left: -100px; animation-delay: 0s; }
+        .orb-2 { width: 500px; height: 500px; background: var(--accent-purple); top: 40%; right: -150px; animation-delay: -5s; }
+        .orb-3 { width: 300px; height: 300px; background: var(--accent-emerald); bottom: -50px; left: 30%; animation-delay: -10s; }
+
+        .bg-grid {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                              linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+            -webkit-mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(30px, -30px) scale(1.1); }
+            66% { transform: translate(-20px, 20px) scale(0.9); }
+        }
+
+        /* ============ UTILITY CLASSES ============ */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 12px;
+            background: linear-gradient(to left, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            background: rgba(139, 92, 246, 0.15);
+            color: #c4b5fd;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+        }
+
+        /* ============ HEADER ============ */
+        .main-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 16px 0;
+            background: rgba(5, 8, 22, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.2rem;
+            font-weight: 800;
+        }
+
+        .logo-icon {
+            display: grid;
+            place-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--gradient-primary);
+            font-size: 1.2rem;
+            color: #fff;
+            box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+        }
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-link {
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            border-radius: 10px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #fff;
+            background: var(--gradient-primary);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+            box-shadow: 0 8px 20px rgba(139, 92, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 12px 28px rgba(139, 92, 246, 0.5);
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 24px;
+            border-radius: 10px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            background: transparent;
+            border: 1px solid var(--glass-border);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(6, 182, 212, 0.5);
+        }
+
+        /* ============ HERO ============ */
+        .hero {
+            padding: 100px 0 80px;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            border-radius: 30px;
+            background: rgba(6, 182, 212, 0.1);
+            color: #67e8f9;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin-bottom: 24px;
+            border: 1px solid rgba(6, 182, 212, 0.2);
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--accent-cyan);
+            box-shadow: 0 0 10px var(--accent-cyan);
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 20%, var(--accent-cyan) 50%, var(--accent-purple) 80%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 0.8s ease both;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto 36px;
+            animation: fadeInUp 0.8s ease 0.1s both;
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ============ STATS ============ */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            max-width: 900px;
+            margin: 60px auto 0;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 20px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(6, 182, 212, 0.3);
+            background: rgba(6, 182, 212, 0.05);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(to left, var(--accent-cyan), var(--accent-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        /* ============ CARD GRIDS ============ */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            gap: 16px;
+        }
+
+        .card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 28px 20px;
+            text-align: center;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(139, 92, 246, 0.15), transparent 60%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card:hover {
+            transform: translateY(-6px) scale(1.02);
+            border-color: rgba(139, 92, 246, 0.3);
+            background: rgba(139, 92, 246, 0.05);
+            box-shadow: 0 15px 35px rgba(139, 92, 246, 0.15);
+        }
+
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            font-size: 1.4rem;
+            margin-bottom: 14px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--accent-cyan);
+            transition: all 0.4s ease;
+        }
+
+        .card:hover .card-icon {
+            background: var(--gradient-primary);
+            color: #fff;
+            transform: rotate(-8deg) scale(1.1);
+            box-shadow: 0 8px 20px rgba(6, 182, 212, 0.3);
+        }
+
+        .card-title {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* ============ QUICK ACTIONS ============ */
+        .action-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .action-card {
+            padding: 32px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .action-card:hover {
+            transform: translateY(-8px);
+            background: rgba(6, 182, 212, 0.05);
+            border-color: rgba(6, 182, 212, 0.3);
+            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.1);
+        }
+
+        .action-icon {
+            font-size: 2rem;
+            width: 60px;
+            height: 60px;
+            display: grid;
+            place-items: center;
+            border-radius: 16px;
+            background: rgba(6, 182, 212, 0.1);
+            color: var(--accent-cyan);
+            transition: all 0.4s ease;
+        }
+
+        .action-card:hover .action-icon {
+            background: var(--gradient-primary);
+            color: #fff;
+            transform: scale(1.1);
+        }
+
+        .action-card h3 {
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .action-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            flex-grow: 1;
+        }
+
+        .action-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--accent-cyan);
+            margin-top: 8px;
+        }
+
+        .action-card:hover .action-link {
+            gap: 12px;
+        }
+
+        /* ============ BLOG CARDS ============ */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .blog-card {
+            padding: 24px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            transition: all 0.4s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(16, 185, 129, 0.3);
+            background: rgba(16, 185, 129, 0.05);
+        }
+
+        .blog-card h3 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .blog-card p {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin-bottom: 16px;
+        }
+
+        .blog-link {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-emerald);
+        }
+
+        /* ============ CTA SECTION ============ */
+        .cta-section {
+            padding: 60px 0;
+        }
+
+        .cta-box {
+            position: relative;
+            padding: 60px 40px;
+            border-radius: 24px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.1), rgba(139, 92, 246, 0.1));
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(139, 92, 246, 0.2), transparent, rgba(6, 182, 212, 0.2), transparent);
+            animation: rotate 10s linear infinite;
+            opacity: 0.5;
+            z-index: 0;
+        }
+
+        .cta-box > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes rotate {
+            to { transform: rotate(360deg); }
+        }
+
+        .cta-box h2 {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+        }
+
+        .cta-box p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-inline: auto;
+        }
+
+        /* ============ FOOTER ============ */
+        .main-footer {
+            padding: 40px 0 24px;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+        }
+
+        .footer-socials {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .social-link {
+            display: grid;
+            place-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            color: var(--text-secondary);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover {
+            background: var(--gradient-primary);
+            color: #fff;
+            border-color: transparent;
+            transform: translateY(-3px);
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 992px) {
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .action-grid { grid-template-columns: repeat(2, 1fr); }
+            .blog-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+
+        @media (max-width: 768px) {
+            .main-nav { display: none; } /* برای سادگی، منو در موبایل مخفی می‌شود. می‌توانید منوی همبرگری اضافه کنید. */
+            .hero-title { font-size: 2.2rem; }
+            .hero-actions { flex-direction: column; align-items: center; }
+            .stats-grid { grid-template-columns: repeat(2, 1fr); }
+            .action-grid { grid-template-columns: 1fr; }
+            .blog-grid { grid-template-columns: 1fr; }
+            .cta-box { padding: 40px 20px; }
+        }
+
+        @media (max-width: 480px) {
+            .card-grid { grid-template-columns: repeat(2, 1fr); }
+            .hero-title { font-size: 1.8rem; }
+        }
+
+        /* کاهش انیمیشن برای کاربرانی که ترجیح می‌دهند */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>سایان نتورک</h1>
-    <p>تأمین‌کننده تخصصی تجهیزات شبکه، سرور و راهکارهای امنیت شبکه برای سازمان‌ها و کسب‌وکارها.</p>
 
-    <h2>راهکارهای ما</h2>
-    <ul>
-        <li><a href="https://sayannetwork.ir/product-category/network-switch/">سوئیچ‌های شبکه</a></li>
-        <li><a href="https://sayannetwork.ir/product-category/network-router/">روترهای شبکه</a></li>
-        <li><a href="https://sayannetwork.ir/product-category/access-point/">اکسس پوینت‌ها</a></li>
-        <li><a href="https://sayannetwork.ir/blog/network-security-services/">خدمات امنیت شبکه</a></li>
-    </ul>
+    <!-- Background Effects -->
+    <div class="bg-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+    <div class="bg-grid"></div>
 
-    <p>برای مشاهده کامل محصولات و خدمات، به <a href="https://sayannetwork.ir">وب‌سایت اصلی ما</a> مراجعه کنید.</p>
+    <!-- Header -->
+    <header class="main-header">
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <div class="logo-icon"><i class="fa-solid fa-network-wired"></i></div>
+                <span>سایان نتورک</span>
+            </a>
+            <nav class="main-nav">
+                <a href="https://sayannetwork.ir/shop/" class="nav-link">فروشگاه</a>
+                <a href="https://sayannetwork.ir/blog/" class="nav-link">مجله</a>
+                <a href="https://sayannetwork.ir/about-us/" class="nav-link">درباره ما</a>
+                <a href="https://sayannetwork.ir/contact/" class="nav-link">تماس</a>
+                <a href="https://sayannetwork.ir/free-consultation/" class="btn-primary">
+                    <i class="fa-solid fa-headset"></i> مشاوره رایگان
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero container">
+            <div class="hero-badge">پورتال جامع سایان نتورک</div>
+            <h1 class="hero-title">دنیای شبکه و امنیت<br>در یک نگاه</h1>
+            <p class="hero-description">
+                دسترسی سریع و ساختاریافته به تمام دسته‌بندی محصولات، خدمات تخصصی و مقالات آموزشی سایان نتورک — همه در یک صفحه.
+            </p>
+            <div class="hero-actions">
+                <a href="https://sayannetwork.ir/shop/" class="btn-primary">
+                    <i class="fa-solid fa-cart-shopping"></i> ورود به فروشگاه
+                </a>
+                <a href="https://sayannetwork.ir/free-consultation/" class="btn-outline">
+                    <i class="fa-solid fa-comments"></i> مشاوره تخصصی
+                </a>
+            </div>
+            
+            <!-- Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">+۱۵۰۰</div>
+                    <div class="stat-label">محصول فعال</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">۲۲</div>
+                    <div class="stat-label">دسته‌بندی تخصصی</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">+۲۰۰</div>
+                    <div class="stat-label">مقاله آموزشی</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">۱۰+</div>
+                    <div class="stat-label">سال تجربه</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Actions -->
+        <section class="section container">
+            <div class="section-header">
+                <span class="badge">دسترسی سریع</span>
+                <h2 class="section-title">از کجا شروع کنیم؟</h2>
+                <p class="section-subtitle">مهم‌ترین مسیرها برای خرید، مطالعه و دریافت مشاوره</p>
+            </div>
+            <div class="action-grid">
+                <a href="https://sayannetwork.ir/shop/" class="action-card">
+                    <div class="action-icon"><i class="fa-solid fa-store"></i></div>
+                    <h3>فروشگاه تخصصی</h3>
+                    <p>بیش از ۱۵۰۰ محصول از برندهای معتبر میکروتیک، سیسکو، HPE، فورتینت و TVT.</p>
+                    <span class="action-link">مشاهده محصولات <i class="fa-solid fa-arrow-left"></i></span>
+                </a>
+                <a href="https://sayannetwork.ir/blog/" class="action-card">
+                    <div class="action-icon"><i class="fa-solid fa-book-open"></i></div>
+                    <h3>مجله شبکه</h3>
+                    <p>مقالات آموزشی، راهنمای خرید و مقایسه تخصصی محصولات در سه دسته آکادمی، قلب شبکه و دنیای دیجیتال.</p>
+                    <span class="action-link">ورود به مجله <i class="fa-solid fa-arrow-left"></i></span>
+                </a>
+                <a href="https://sayannetwork.ir/free-consultation/" class="action-card">
+                    <div class="action-icon"><i class="fa-solid fa-user-tie"></i></div>
+                    <h3>مشاوره رایگان</h3>
+                    <p>کارشناسان ما متناسب با نیاز و بودجه شما، بهترین تجهیزات شبکه را پیشنهاد می‌دهند.</p>
+                    <span class="action-link">دریافت مشاوره <i class="fa-solid fa-arrow-left"></i></span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Product Categories -->
+        <section class="section container">
+            <div class="section-header">
+                <span class="badge">۲۲ دسته‌بندی</span>
+                <h2 class="section-title">دسته‌بندی محصولات</h2>
+                <p class="section-subtitle">همه تجهیزات شبکه، سرور، امنیت و زیرساخت در یک نگاه</p>
+            </div>
+            <div class="card-grid">
+                <a href="https://sayannetwork.ir/product-category/network-switch/" class="card">
+                    <div class="card-icon"><i class="fa-solid fa-code-branch"></i></div>
+                    <span class="card-title">سوئیچ شبکه</span>
+                </a>
+                <a href="https://sayannetwork.ir/product-category/network-router/" class="card">
+                    <div class="card-icon"><i class="fa-solid fa-globe"></i></div>
+                    <span class="card-title">روتر شبکه</span>
+                </a>
+                <a href="https://sayannetwork.ir/product-category/network-server/" class="card">
+                    <div class="card-icon"><i class="fa-solid fa-server"></i></div>
+                    <span class="card-title">سرور شبکه</span>
+                </a>
+                <a href="https://sayannetwork.ir/product-category/access-point/" class="card">
+                    <div class="card-icon"><i class="fa-solid fa-wifi"></i></div>
+                    <span class="card-title">اکسس پوینت</span>
+                </a>
+                <a href="https://sayannetwork.ir/product-category/cctv-camera/" class="card">
+                    <div class="card-icon"><i class="fa-solid fa-video"></i></div>
+                    <span class="card-title">دوربین مداربسته</span>
+                </a>
+                <a href="https://sayannetwork.ir/product-category/firewall/" class="card">
+                    <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <span class="card-title">فایروال</span>
+                </a>
+                <a href="https://sayannetwork.ir/product-category/storage-devices/" class="card">
+                    <div class="card-icon"><i class="fa-solid fa-hard-drive"></i></div>
+                    <span class="card-title">ذخیره‌سازها</span>
+                </a>
+                <a href="https://sayannetwork.ir/product-category/battery-ups/" class="card">
+                    <div class="card-icon"><i class="fa-solid fa-car-battery"></i></div>
+                    <span class="card-title">باتری و UPS</span>
+                </a>
+                <a href="https://sayannetwork.ir/product-category/active-network-equipment/" class="card">
+                    <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <span class="card-title">تجهیزات اکتیو</span>
+                </a>
+                <a href="https://sayannetwork.ir/product-category/passive-network-equipment-category/" class="card">
+                    <div class="card-icon"><i class="fa-solid fa-plug"></i></div>
+                    <span class="card-title">تجهیزات پسیو</span>
+                </a>
+                <a href="https://sayannetwork.ir/product-category/network-connections/" class="card">
+                    <div class="card-icon"><i class="fa-solid fa-link"></i></div>
+                    <span class="card-title">اتصالات شبکه</span>
+                </a>
+                <a href="https://sayannetwork.ir/product-category/voip-telephony-pbx/" class="card">
+                    <div class="card-icon"><i class="fa-solid fa-phone"></i></div>
+                    <span class="card-title">تلفن و VoIP</span>
+                </a>
+                <a href="https://sayannetwork.ir/product-category/mikrotik-wireless-radio/" class="card">
+                    <div class="card-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+                    <span class="card-title">رادیو وایرلس</span>
+                </a>
+                <a href="https://sayannetwork.ir/product-category/network-racks/" class="card">
+                    <div class="card-icon"><i class="fa-solid fa-database"></i></div>
+                    <span class="card-title">رک شبکه</span>
+                </a>
+                <a href="https://sayannetwork.ir/product-category/fiber-optic/" class="card">
+                    <div class="card-icon"><i class="fa-solid fa-lightbulb"></i></div>
+                    <span class="card-title">فیبر نوری</span>
+                </a>
+                <a href="https://sayannetwork.ir/product-category/duct-trunking/" class="card">
+                    <div class="card-icon"><i class="fa-solid fa-screwdriver-wrench"></i></div>
+                    <span class="card-title">داکت و ترانکینگ</span>
+                </a>
+                <a href="https://sayannetwork.ir/product-category/alarm-fire-detection/" class="card">
+                    <div class="card-icon"><i class="fa-solid fa-bell"></i></div>
+                    <span class="card-title">دزدگیر و اعلام حریق</span>
+                </a>
+                <a href="https://sayannetwork.ir/product-category/printers-office-machines/" class="card">
+                    <div class="card-icon"><i class="fa-solid fa-print"></i></div>
+                    <span class="card-title">پرینتر و اداری</span>
+                </a>
+                <a href="https://sayannetwork.ir/product-category/cable-management-system/" class="card">
+                    <div class="card-icon"><i class="fa-solid fa-ruler-combined"></i></div>
+                    <span class="card-title">مدیریت کابل</span>
+                </a>
+                <a href="https://sayannetwork.ir/product-category/computer-and-components/" class="card">
+                    <div class="card-icon"><i class="fa-solid fa-laptop"></i></div>
+                    <span class="card-title">کامپیوتر و قطعات</span>
+                </a>
+                <a href="https://sayannetwork.ir/product-category/digital-accessories/" class="card">
+                    <div class="card-icon"><i class="fa-solid fa-headphones"></i></div>
+                    <span class="card-title">لوازم جانبی</span>
+                </a>
+                <a href="https://sayannetwork.ir/product-category/network-server/server-parts/" class="card">
+                    <div class="card-icon"><i class="fa-solid fa-microchip"></i></div>
+                    <span class="card-title">قطعات سرور</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- Blog Categories -->
+        <section class="section container">
+            <div class="section-header">
+                <span class="badge">مجله شبکه</span>
+                <h2 class="section-title">دسته‌بندی مقالات</h2>
+                <p class="section-subtitle">سه دنیای متفاوت از دانش شبکه و فناوری</p>
+            </div>
+            <div class="blog-grid">
+                <a href="https://sayannetwork.ir/blog/sayan-academy/" class="blog-card">
+                    <h3>🎓 آکادمی سایان</h3>
+                    <p>آموزش‌های تخصصی، راهنمای خرید و مقایسه محصولات برای انتخاب هوشمندانه.</p>
+                    <span class="blog-link">مشاهده مقالات ←</span>
+                </a>
+                <a href="https://sayannetwork.ir/blog/heart-of-the-network/" class="blog-card">
+                    <h3>💙 قلب شبکه</h3>
+                    <p>عمیق‌ترین مقالات فنی درباره زیرساخت، امنیت و مدیریت شبکه سازمانی.</p>
+                    <span class="blog-link">مشاهده مقالات ←</span>
+                </a>
+                <a href="https://sayannetwork.ir/blog/the-digital-world/" class="blog-card">
+                    <h3>🌍 دنیای دیجیتال</h3>
+                    <p>فناوری‌های روز، ترفندهای کاربردی ویندوز و اخبار دنیای دیجیتال.</p>
+                    <span class="blog-link">مشاهده مقالات ←</span>
+                </a>
+                <a href="https://sayannetwork.ir/blog/video/" class="blog-card">
+                    <h3>🎬 ویدیوهای سایان</h3>
+                    <p>آموزش‌های ویدیویی نصب، راه‌اندازی و پیکربندی تجهیزات شبکه.</p>
+                    <span class="blog-link">مشاهده ویدیوها ←</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section container">
+            <div class="cta-box">
+                <h2>نیاز به مشاوره تخصصی دارید؟</h2>
+                <p>کارشناسان سایان نتورک آماده‌اند تا متناسب با نیاز و بودجه شما، بهترین راهکار شبکه را پیشنهاد دهند.</p>
+                <a href="https://sayannetwork.ir/free-consultation/" class="btn-primary">
+                    <i class="fa-solid fa-headset"></i> دریافت مشاوره رایگان
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-socials">
+                <a href="https://sayannetwork.ir" class="social-link" aria-label="وب‌سایت" target="_blank" rel="noopener"><i class="fa-solid fa-globe"></i></a>
+                <a href="https://instagram.com/sayannetwork" class="social-link" aria-label="اینستاگرام" target="_blank" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://t.me/sayannetwork" class="social-link" aria-label="تلگرام" target="_blank" rel="noopener"><i class="fa-brands fa-telegram"></i></a>
+                <a href="https://linkedin.com/company/sayannetwork" class="social-link" aria-label="لینکدین" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin"></i></a>
+            </div>
+            <p>&copy; ۲۰۲۵ سایان نتورک | تمامی حقوق محفوظ است.</p>
+            <p style="margin-top: 8px; font-size: 0.8rem;">
+                <a href="https://sayannetwork.ir/about-us/">درباره ما</a> · 
+                <a href="https://sayannetwork.ir/contact/">تماس با ما</a> · 
+                <a href="https://sayannetwork.ir/privacy-policy/">حریم خصوصی</a>
+            </p>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactions -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mouse-follow glow effect on cards
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    card.style.setProperty('--mouse-x', `${x}px`);
+                    card.style.setProperty('--mouse-y', `${y}px`);
+                });
+            });
+
+            // Optional: Add intersection observer for fade-in animations on scroll
+            // For simplicity, we're relying on CSS animations for hero section.
+            // You can expand this for other sections if needed.
+        });
+    </script>
 </body>
 </html>
